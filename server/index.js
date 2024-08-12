@@ -5,7 +5,7 @@ import { connectToDatabase } from "./models/connection.js";
 
 const app = express();
 const port = 5000;
-var collection;
+let collection;
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -22,8 +22,6 @@ app.post("/form", async (req, res) => {
   const formData = req.body;
 
   try {
-    const { collection } = await connectToDatabase();
-
     const existingUser = await collection.findOne({ email: formData.email });
 
     if (existingUser) {
@@ -40,11 +38,8 @@ app.post("/form", async (req, res) => {
   }
 });
 
-// admin page
-
 app.get("/asdf/admin", async (req, res) => {
   try {
-    const { collection } = await connectToDatabase();
     const users = await collection.find({}).toArray();
     res.send(users);
   } catch (error) {
@@ -53,7 +48,14 @@ app.get("/asdf/admin", async (req, res) => {
   }
 });
 
-app.listen(port, () => {
+app.listen(port, async () => {
   console.log(`Server is running on port ${port}`);
-  collection = connectToDatabase();
+
+  try {
+    const dbConnection = await connectToDatabase();
+    collection = dbConnection.collection;
+    console.log("Connected to the database and collection is set.");
+  } catch (error) {
+    console.error("Failed to connect to the database:", error);
+  }
 });
