@@ -7,7 +7,7 @@ const UserCard = ({ user }) => {
         Name: <span className="text-teal-400">{user.name}</span>
       </h2>
       <p>
-        Email: <span className="text-sky-300">{user.email}</span>{" "}
+        Email: <span className="text-sky-300">{user.email}</span>
       </p>
     </div>
   );

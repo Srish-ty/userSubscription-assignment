@@ -1,6 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
+import { MongoClient, ObjectId } from "mongodb";
 import { connectToDatabase } from "./models/connection.js";
 
 const app = express();
@@ -72,7 +73,7 @@ app.put("/asdf/admin/:id", async (req, res) => {
 
   try {
     const result = await collection.updateOne(
-      { _id: new MongoClient.ObjectId(id) },
+      { _id: new ObjectId(id) },
       { $set: { name, email } }
     );
 
@@ -92,7 +93,7 @@ app.delete("/asdf/admin/:id", async (req, res) => {
 
   try {
     const result = await collection.deleteOne({
-      _id: new MongoClient.ObjectId(id),
+      _id: new ObjectId(id),
     });
 
     if (result.deletedCount === 0) {
