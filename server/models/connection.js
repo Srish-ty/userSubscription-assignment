@@ -1,8 +1,7 @@
 import { MongoClient } from "mongodb";
 
 const config = {
-  connectionString:
-    "mongodb+srv://srush:localhost@formserver.fjuut.mongodb.net/",
+  connectionString: process.env.MONGODB_CONNECTION_STRING,
 };
 
 let client;
