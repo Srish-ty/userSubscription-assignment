@@ -67,8 +67,17 @@ const AddEditUserForm = ({ user, onSave, onCancel }) => {
           required
         />
       </label>
-      <button type="submit">{user ? "Update" : "Add"} User</button>
-      <button type="button" onClick={onCancel}>
+      <button
+        type="submit"
+        className="bg-slate-500 rounded px-3 my-1 text-white"
+      >
+        {user ? "Update" : "Add"} User
+      </button>
+      <button
+        type="button"
+        className="bg-slate-500 rounded px-3 my-1 text-white"
+        onClick={onCancel}
+      >
         Cancel
       </button>
     </form>
