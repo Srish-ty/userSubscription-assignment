@@ -48,7 +48,7 @@ const FormContainer = () => {
   };
 
   return (
-    <div className="w-[50vw] bg-slate-700 my-[6vw] mx-auto p-10 flex flex-col items-center justify-between">
+    <div className="w-[50vw] bg-slate-700 my-[6vw] mx-auto p-10 flex flex-col items-center justify-between rounded-lg">
       <h1>Form Container</h1>
       <form className="py-6 h-[20vw] flex flex-col items-center justify-between">
         <label>
@@ -72,7 +72,10 @@ const FormContainer = () => {
         <span className={errorMessage ? "text-red-500" : "text-green-400"}>
           {errorMessage.length > 0 ? errorMessage : successMessage}
         </span>
-        <button className="block bg-slate-400 px-3 py-2" onClick={handleSubmit}>
+        <button
+          className="block bg-slate-400 px-5 py-2 rounded"
+          onClick={handleSubmit}
+        >
           Submit
         </button>
       </form>
