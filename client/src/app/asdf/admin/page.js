@@ -13,7 +13,9 @@ const AdminPage = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await fetch("http://localhost:5000/asdf/admin");
+        const response = await fetch(
+          "https://usersubscription-assignment-1.onrender.com/asdf/admin"
+        );
         const data = await response.json();
         setUsers(data);
       } catch (error) {
@@ -36,9 +38,12 @@ const AdminPage = () => {
 
   const handleDeleteUser = async (userId) => {
     try {
-      await fetch(`http://localhost:5000/asdf/admin/${userId}`, {
-        method: "DELETE",
-      });
+      await fetch(
+        `https://usersubscription-assignment-1.onrender.com/asdf/admin/${userId}`,
+        {
+          method: "DELETE",
+        }
+      );
       setUsers(users.filter((user) => user._id !== userId));
     } catch (error) {
       console.error("Error deleting user:", error);
@@ -49,7 +54,9 @@ const AdminPage = () => {
     setShowForm(false);
     // Re-fetch users
     try {
-      const response = await fetch("http://localhost:5000/asdf/admin");
+      const response = await fetch(
+        "https://usersubscription-assignment-1.onrender.com/asdf/admin"
+      );
       const data = await response.json();
       setUsers(data);
     } catch (error) {

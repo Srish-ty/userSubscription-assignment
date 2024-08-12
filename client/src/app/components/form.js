@@ -25,13 +25,16 @@ const FormContainer = () => {
     }
     console.log("Form submitted", userData);
     try {
-      const response = await fetch("http://localhost:5000/form", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(userData),
-      });
+      const response = await fetch(
+        "https://usersubscription-assignment-1.onrender.com/form",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(userData),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Failed to submit form");

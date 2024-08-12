@@ -16,21 +16,27 @@ const AddEditUserForm = ({ user, onSave, onCancel }) => {
     e.preventDefault();
     try {
       if (user) {
-        await fetch(`http://localhost:5000/asdf/admin/${user._id}`, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ name, email }),
-        });
+        await fetch(
+          `https://usersubscription-assignment-1.onrender.com/asdf/admin/${user._id}`,
+          {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ name, email }),
+          }
+        );
       } else {
-        await fetch("http://localhost:5000/asdf/admin", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ name, email }),
-        });
+        await fetch(
+          "https://usersubscription-assignment-1.onrender.com/asdf/admin",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ name, email }),
+          }
+        );
       }
       onSave();
     } catch (error) {
