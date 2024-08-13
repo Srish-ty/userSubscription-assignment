@@ -6,7 +6,7 @@ const NavBar = () => {
     <nav className="bg-slate-900 py-3 px-20">
       <ul className="flex flex-col sm:flex-row justify-between mx-10">
         {navData.map((item) => (
-          <li className="text-center">
+          <li key={item.id} className="text-center">
             <a href={item.href}>{item.title}</a>
           </li>
         ))}
