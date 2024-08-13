@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import { MongoClient, ObjectId } from "mongodb";
 import { connectToDatabase } from "./models/connection.js";
+import { sendMail } from "./controllers/mailing.js";
 
 const app = express();
 const port = 5000;
@@ -30,6 +31,12 @@ app.post("/form", async (req, res) => {
     } else {
       await collection.insertOne(formData);
       res.send("Form submitted successfully!");
+      await sendMail(
+        formData.email,
+        "Subscription Confirmation",
+        "Thank you for submitting the form.",
+        "<h1> You have been subscribed to mailing list</h1><br> <h2>Thank you for submitting the form.</h2>"
+      );
     }
 
     console.log(formData);
