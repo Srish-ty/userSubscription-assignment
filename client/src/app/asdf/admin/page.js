@@ -74,7 +74,7 @@ const AdminPage = () => {
       <h1 className="mx-20 my-3">Subscribed Users:</h1>
       <button
         onClick={handleAddUser}
-        className="bg-slate-600 w-[10vw] py-2 px-3 rounded-lg m-auto"
+        className="bg-slate-600 w-[30vw] sm:w-[20vw] lg:w-[10vw] py-2 px-3 rounded-lg m-auto"
       >
         Add User +
       </button>
@@ -87,14 +87,19 @@ const AdminPage = () => {
       )}
       <div className="user-cards-container flex flex-col justify-center items-center mx-6">
         {users.map((user) => (
-          <div key={user._id} className="flex items-center">
+          <div
+            key={user._id}
+            className="flex items-center flex-col-reverse md:flex-row"
+          >
             <UserCard user={user} />
-            <button onClick={() => handleEditUser(user)}>
-              <EditIcon />
-            </button>
-            <button onClick={() => handleDeleteUser(user._id)}>
-              <DeleteForeverIcon />
-            </button>
+            <div className="w-[32vw] md:w-auto flex flex-row md:flex-col mt-2 justify-between">
+              <button onClick={() => handleEditUser(user)}>
+                <EditIcon />
+              </button>
+              <button onClick={() => handleDeleteUser(user._id)}>
+                <DeleteForeverIcon />
+              </button>
+            </div>
           </div>
         ))}
       </div>

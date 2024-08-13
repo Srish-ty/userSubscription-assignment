@@ -51,16 +51,16 @@ const FormContainer = () => {
   };
 
   return (
-    <div className="w-[50vw] bg-slate-700 my-[6vw] mx-auto p-10 flex flex-col items-center justify-between rounded-lg">
+    <div className="w-[80%] sm:w-[50vw] bg-slate-700 my-[6vw] mx-auto py-8 px-2 md:p-10 flex flex-col items-center justify-between rounded-lg">
       <h1>Form Container</h1>
-      <form className="py-6 h-[20vw] flex flex-col items-center justify-between">
+      <form className="py-6 h-[65vw] sm:h-[35vw] md:h-[20vw] flex flex-col items-center justify-between">
         <label>
           Name:
           <input
             type="text"
             name="name"
             onChange={handleChange}
-            className="text-slate-800 my-4"
+            className="text-slate-800 my-4 w-[100%]"
           />
         </label>
         <label>
@@ -69,7 +69,7 @@ const FormContainer = () => {
             type="text"
             name="email"
             onChange={handleChange}
-            className="text-slate-800 my-4"
+            className="text-slate-800 my-4 w-[100%]"
           />
         </label>
         <span className={errorMessage ? "text-red-500" : "text-green-400"}>
